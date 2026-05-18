@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWP Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-card">
+        <h2>SWP Calculator</h2>
+        
+        <div class="input-group">
+            <label for="totalInvestment">Total Investment (₹)</label>
+            <input type="text" id="totalInvestment" placeholder="e.g. 50,00,000" inputmode="numeric">
+        </div>
+
+        <div class="input-group">
+            <label for="monthlyWithdrawal">Monthly Withdrawal (₹)</label>
+            <input type="text" id="monthlyWithdrawal" placeholder="e.g. 30,000" inputmode="numeric">
+        </div>
+
+        <div class="input-group">
+            <label for="rate">Expected Returns (% p.a.)</label>
+            <input type="text" id="rate" placeholder="e.g. 8" inputmode="numeric">
+        </div>
+
+        <div class="input-group">
+            <label for="years">How long you want to withdraw (in Years)</label>
+            <input type="text" id="years" placeholder="e.g. 10" inputmode="numeric">
+        </div>
+
+        <div id="error-message" style="color: #d9534f; font-size: 0.9rem; margin-bottom: 10px; display: none; text-align: center; font-weight: bold;"></div>
+
+        <button onclick="calculateSWP()"><b>Calculate</b></button>
+
+        <div class="results" id="results" style="display: none;">
+            <div class="result-item">
+                <span>Total Invested:</span>
+                <span id="displayInvested">₹0</span>
+            </div>
+            <div class="result-item">
+                <span>Total Withdrawal:</span>
+                <span id="displayWithdrawn">₹0</span>
+            </div>
+            <div class="result-item total">
+                <span>Final Portfolio Balance:</span>
+                <span id="displayFinalValue">₹0</span>
+            </div>
+
+            <div class="summary-results" id="depletionMessage" style="display: none; margin-top: 20px;">
+                <p>Your corpus will deplete in approx <span id="depleteTime" class="highlight-red"></span> if you withdraw <span id="currentWithdrawal" class="highlight-red"></span> per month.</p>
+                <p>To last <span id="targetYears" class="highlight-green"></span> years, you should consider withdrawing approx <span id="suggestedWithdrawal" class="highlight-green"></span> per month.</p>
+            </div>
+
+            <div class="disclaimer" style="margin-top: 20px; font-size: 11px; color: #666;">
+                *Disclaimer: Investment in securities market are subject to market risks.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
